@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.neumorphism {
+ background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%); /* Gold-like gradient background */
+ border-radius: 15px; /* Rounded corners */
+ box-shadow:  10px 10px 30px rgba(0, 0, 0, 0.15), /* Pronounced ambient light with less glow */
+                 -10px -10px 30px rgba(255, 255, 255, 0.05); /* Subtle highlight with less glow */
+ padding: 20px 30px; /* Increased padding for larger boxes */
+ margin: 15px; /* Increased margin for larger boxes */
+ cursor: pointer; /* Change cursor to pointer on hover */
+ transition: all 0.3s ease; /* Smooth transition for hover effects */
+ font-size: 18px; /* Larger text size */
+ color: #000; /* Black text color */
+}
+
+.neumorphism:hover {
+ animation: pulse 1.5s infinite; /* Apply the pulse animation on hover */
+}
+
+.categories-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr); /* Adjusted to have 4 columns */
+ grid-gap: 20px;
+ padding: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px; /* Adjust the font size as needed */
+  animation: fadeIn 2s ease-out forwards; /* Apply the fade-in animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+ }
+  50% {
+    transform: scale(1.05);
+ }
+  100% {
+    transform: scale(1);
+ }
+}
+
+@keyframes fadeIn {
+ from {
+   opacity: 0;
+ }
+ to {
+   opacity: 1;
+ }
+}
